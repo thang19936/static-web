@@ -1,75 +1,38 @@
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <link rel="StyleSheet" href="./css/style.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-</head>
-
-<body>
-    <header>
-        <h1>MySite</h1>
-        <h3>Slogan go here...</h3>
-    </header>
-    <nav>
-        <ul>
-            <li><a data-section="home">Home</a></li>
-            <li><a data-section="services">Services</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Products</a>
-                <div class="dropdown-content">
-                    <a data-section="link1">Link 1</a>
-                    <a data-section="link2">Link 2</a>
-                    <a data-section="link3">Link 3</a>
-                </div>
-            </li>
-            <li style="float:right"><a data-section="about">About us</a></li>
-        </ul>
-    </nav>
-
-    <section id="home" class="hideable-section">
-        <div>Home content</div>
-    </section>
-
-    <section id="services" class="hideable-section">
-        <div>Services content</div>
-    </section>
-
-    <section id="about" class="hideable-section">
-        <div>About content</div>
-    </section>
-
-    <section id="link1" class="hideable-section">
-        <div>Link1 content</div>
-    </section>
-
-    <section id="link2" class="hideable-section">
-        <div>Link2 content</div>
-    </section>
-
-    <section id="link3" class="hideable-section">
-        <div>Link3 content</div>
-    </section>
-
-    <script>
-        $(function() {
-            $('nav ul li a').click(function() {
-                // Lấy section để hiển thị
-                var $section = $('#' + $(this).data('section'));
-
-                // Nếu đang hiện thì không làm gì.
-                // Nếu không, ẩn tất cả các se cho hiện (kiểu fade in) phần mong muốn.
-                if (!$section.is(':visible')) {
-                    $('.hideable-section').hide();
-                    $section.fadeIn();
-                }
-            });
-        });
-    </script>
-</body>
-
-</html>
+<div id="container">
+    <h1>Tip Calculator</h1>
+    <div id="calculator">
+  
+  
+      <form>
+        <p>How much was your bill?
+          <p>
+            $ <input id="billamt" type="text" placeholder="Bill Amount">
+  
+            <p>How was your service?
+              <p>
+                <select id="serviceQual">
+              <option disabled selected value="0">-- Choose an Option --</option>
+              <option value="0.3">30&#37; &#45; Outstanding</option>
+              <option value="0.2">20&#37; &#45; Good</option>
+              <option value="0.15">15&#37; &#45; It was OK</option>
+              <option value="0.1">10&#37; &#45; Bad</option>
+              <option value="0.05">5&#37; &#45; Terrible</option>
+          </select>
+  
+      </form>
+      <p>How many people are sharing the bill?</p>
+      <input id="peopleamt" type="text" placeholder="Number of People"> people
+      <button type="button" id="calculate">Calculate!</button>
+  
+    </div>
+    <!--calculator end-->
+    <div id="totalTip">
+      <sup>$</sup><span id="tip">0.00</span>
+      <small id="each">each</small>
+    </div>
+    <!--totalTip end-->
+  
+  </div>
+  <!--container end-->
+  
+  <script type="text/javascript" src="tipcalculator.js"></script>
